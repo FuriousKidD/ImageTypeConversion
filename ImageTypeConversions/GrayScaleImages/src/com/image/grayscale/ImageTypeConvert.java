@@ -38,7 +38,7 @@ public class ImageTypeConvert {
 		//creates a blank, empty grayscale image with the same dimensions as the original one
 		grayImg = new BufferedImage(img.getWidth(),
 					img.getHeight(),
-					BufferedImage.TYPE_INT_ARGB);
+					BufferedImage.TYPE_INT_RGB);
 		
 		//Looping through every pixel of the image row-by-row, col-by-col
 		for(int y = 0; y < img.getHeight(); y++) {
@@ -60,9 +60,7 @@ public class ImageTypeConvert {
 				 * Each channel is weighed based on how the human eye perceives brightness
 				 */
 				
-				int grayPixel = (int)( (0.299 * red) +
-												(0.587 * green) +
-												(0.114 * blue) );
+				int grayPixel = (int)( (0.299 * red) + (0.587 * green) + (0.114 * blue) );
 				
 				//creates the new grayScale color representation of the rgb
 				Color grayColor = new Color(grayPixel, grayPixel, grayPixel);//r = g = b
@@ -87,5 +85,6 @@ public class ImageTypeConvert {
 		
 		//Create and save the grayscale image to specified directory
 		ImageIO.write(getGrayImg(), "jpg", grayFileDir);
+		System.out.println("Image Saved Succesfully!");
 	}
 }
