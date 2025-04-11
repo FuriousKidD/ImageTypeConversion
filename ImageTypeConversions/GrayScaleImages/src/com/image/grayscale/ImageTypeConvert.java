@@ -1,5 +1,5 @@
 /**
- * 
+ * @author TW MANHEMA
  */
 package com.image.grayscale;
 
